@@ -1,0 +1,97 @@
+/* ============================================
+   PITON LLC — Design System Tokens
+   Color Scheme: Red + Charcoal Grey (Rockwell-inspired)
+   ============================================ */
+
+:root {
+  /* === PRIMARY PALETTE === */
+  --color-bg-white:       #FFFFFF;
+  --color-bg-light:       #F2F2F2;
+  --color-bg-medium:      #E5E5E5;
+  --color-bg-dark:        #2D2D2D;
+  --color-bg-darker:      #1A1A1A;
+  --color-bg-black:       #111111;
+
+  /* === BRAND COLORS === */
+  --color-primary:        #D12027;
+  --color-primary-dark:   #A81920;
+  --color-primary-light:  #E8434A;
+  --color-primary-subtle: rgba(209, 32, 39, 0.08);
+  --color-primary-glow:   rgba(209, 32, 39, 0.35);
+
+  /* === NEUTRALS === */
+  --color-steel:          #6B6B6B;
+  --color-text-dark:      #1A1A1A;
+  --color-text-body:      #444444;
+  --color-text-light:     #E8E8E8;
+  --color-text-white:     #FFFFFF;
+  --color-text-muted:     #999999;
+
+  /* === FUNCTIONAL === */
+  --color-success:        #28A745;
+  --color-warning:        #FFC107;
+  --color-error:          #DC3545;
+
+  /* === SPACING (8-point grid) === */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   16px;
+  --space-lg:   24px;
+  --space-xl:   32px;
+  --space-2xl:  48px;
+  --space-3xl:  64px;
+  --space-4xl:  96px;
+  --space-5xl:  128px;
+
+  /* === TYPOGRAPHY === */
+  --font-heading: 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-5xl:   3rem;
+  --text-6xl:   3.75rem;
+  --text-hero:  clamp(2.5rem, 6vw, 5rem);
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    800;
+
+  --line-tight:    1.1;
+  --line-snug:     1.3;
+  --line-normal:   1.6;
+  --line-relaxed:  1.8;
+
+  /* === BORDERS & RADIUS === */
+  --radius-sm:    2px;
+  --radius-md:    4px;
+  --radius-lg:    8px;
+  --border-subtle: 1px solid #E0E0E0;
+  --border-dark:   1px solid rgba(255, 255, 255, 0.1);
+
+  /* === SHADOWS === */
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg:    0 8px 32px rgba(0, 0, 0, 0.18);
+  --shadow-red:   0 4px 20px rgba(209, 32, 39, 0.3);
+  --shadow-lift:  0 12px 40px rgba(0, 0, 0, 0.15);
+
+  /* === TRANSITIONS === */
+  --transition-fast:    150ms ease;
+  --transition-base:    250ms ease;
+  --transition-slow:    400ms ease;
+  --transition-spring:  500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* === LAYOUT === */
+  --container-max:  1280px;
+  --container-wide: 1440px;
+  --nav-height:     80px;
+}

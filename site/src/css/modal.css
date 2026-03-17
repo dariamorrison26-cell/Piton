@@ -1,0 +1,465 @@
+/* ============================================
+   PITON LLC — Quote Modal Styles
+   ============================================ */
+
+/* === MODAL OVERLAY === */
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: var(--space-lg);
+}
+
+.quote-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+/* === MODAL PANEL === */
+.quote-modal {
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quote-modal-overlay.active .quote-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Custom scrollbar for modal */
+.quote-modal::-webkit-scrollbar {
+  width: 6px;
+}
+.quote-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.quote-modal::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+/* === MODAL HEADER === */
+.quote-modal__header {
+  padding: var(--space-xl) var(--space-2xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg-dark);
+  z-index: 1;
+}
+
+.quote-modal__header-content {
+  flex: 1;
+}
+
+.quote-modal__eyebrow {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.quote-modal__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-black);
+  color: var(--color-text-white);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.quote-modal__close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+
+.quote-modal__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-text-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === MODAL BODY === */
+.quote-modal__body {
+  padding: var(--space-xl) var(--space-2xl) var(--space-2xl);
+}
+
+/* === MODAL FORM FIELDS === */
+.qf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.qf-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-md);
+}
+
+.qf-label {
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: var(--space-xs);
+}
+
+.qf-label span {
+  color: var(--color-primary);
+}
+
+.qf-input,
+.qf-select,
+.qf-textarea {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  color: var(--color-text-white);
+  background-color: rgba(255, 255, 255, 0.04);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.qf-input:focus,
+.qf-select:focus,
+.qf-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.qf-input::placeholder,
+.qf-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.qf-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.qf-select option {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+}
+
+.qf-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* === MODAL FOOTER / SUBMIT === */
+.quote-modal__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.quote-modal__submit {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  border: none;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-modal__submit:hover {
+  background-color: #b51a20;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(209, 32, 39, 0.4);
+}
+
+.quote-modal__submit:active {
+  transform: translateY(0);
+}
+
+.quote-modal__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quote-modal__response-info {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.4;
+}
+
+/* === SUCCESS STATE === */
+.quote-modal__success {
+  display: none;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-2xl);
+}
+
+.quote-modal__success.active {
+  display: block;
+}
+
+.quote-modal__success-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto var(--space-xl);
+  background-color: rgba(39, 174, 96, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #27ae60;
+}
+
+.quote-modal__success-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-black);
+  color: var(--color-text-white);
+  margin-bottom: var(--space-sm);
+}
+
+.quote-modal__success-text {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: var(--line-relaxed);
+  max-width: 400px;
+  margin: 0 auto var(--space-xl);
+}
+
+.quote-modal__success-steps {
+  text-align: left;
+  max-width: 360px;
+  margin: var(--space-xl) auto 0;
+}
+
+.quote-modal__step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.quote-modal__step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(209, 32, 39, 0.15);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  flex-shrink: 0;
+}
+
+.quote-modal__step-text {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .quote-modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .quote-modal {
+    max-height: 95vh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    max-width: 100%;
+  }
+
+  .quote-modal__header,
+  .quote-modal__body {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  .qf-row {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-modal__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quote-modal__submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  .quote-modal__response-info {
+    text-align: center;
+  }
+}
+
+/* ============================================
+   CONTACT INFO MODAL
+   ============================================ */
+
+.contact-modal__body {
+  padding: var(--space-lg) var(--space-2xl) var(--space-2xl);
+}
+
+.contact-modal__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: var(--space-md);
+  transition: all var(--transition-fast);
+}
+
+.contact-modal__item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.contact-modal__item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(209, 32, 39, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.contact-modal__item-content {
+  flex: 1;
+}
+
+.contact-modal__item-label {
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.contact-modal__item-value {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-white);
+  line-height: 1.5;
+}
+
+.contact-modal__item-value a {
+  color: var(--color-text-white);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-modal__item-value a:hover {
+  color: var(--color-primary);
+}
+
+.contact-modal__item-sub {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 2px;
+}
+
+.contact-modal__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: var(--space-lg) 0;
+}
+
+.contact-modal__cta {
+  text-align: center;
+  padding-top: var(--space-sm);
+}
+
+.contact-modal__cta-text {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: var(--space-md);
+}
+
+/* === NAVBAR CONTACT BUTTON === */
+.navbar__contact-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-white);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-right: 8px;
+}
+
+.navbar__contact-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .navbar__contact-btn {
+    display: none;
+  }
+}

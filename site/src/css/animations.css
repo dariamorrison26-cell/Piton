@@ -1,0 +1,141 @@
+/* ============================================
+   PITON LLC — Animations
+   ============================================ */
+
+/* === RESPECT USER PREFERENCES === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal--left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal--right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reveal--scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === STAGGERED CHILDREN === */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 120ms; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 240ms; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 360ms; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 480ms; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 600ms; }
+
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === HERO ANIMATIONS === */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+/* === COUNTER PULSE === */
+@keyframes count-highlight {
+  0%   { color: var(--color-text-white); }
+  50%  { color: var(--color-primary-light); }
+  100% { color: var(--color-text-white); }
+}
+
+/* === CTA PULSE === */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(209, 32, 39, 0.4); }
+  50%      { box-shadow: 0 0 0 14px rgba(209, 32, 39, 0); }
+}
+
+/* === RED ACCENT BAR SLIDE === */
+@keyframes accent-slide {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+/* === LOGO MARQUEE === */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* === FLOAT (subtle) === */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}

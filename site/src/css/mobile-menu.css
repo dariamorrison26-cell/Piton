@@ -1,0 +1,48 @@
+/* ============================================
+   PITON LLC — Mobile Menu (additional styles)
+   ============================================ */
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: var(--space-lg);
+  background-color: var(--color-bg-darker);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu__link {
+  padding: var(--space-md) 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-menu__link:hover {
+  color: var(--color-primary);
+}
+
+/* Navbar toggle active state */
+.navbar__toggle.active .navbar__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__toggle.active .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle.active .navbar__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Navbar background on scroll */
+.navbar--scrolled {
+  background-color: rgba(17, 17, 17, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
