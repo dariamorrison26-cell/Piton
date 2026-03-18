@@ -435,7 +435,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
-  align-items: center;
+  align-items: stretch;
   margin-bottom: var(--space-4xl);
 }
 
@@ -453,6 +453,9 @@
 
 .pillar__content {
   padding: var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .pillar__number {
@@ -483,9 +486,13 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  position: relative;
 }
 
 .pillar__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
